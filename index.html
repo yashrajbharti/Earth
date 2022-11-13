@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
+  <script
+    src="https://cdn.rawgit.com/tizzle/aframe-orbit-controls-component/v0.1.14/dist/aframe-orbit-controls-component.min.js"></script>
+  <link rel="stylesheet" href="style.css">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <a-scene vr-mode-ui="enabled: false" renderer="antialias: true;
+  colorManagement: true;
+  sortObjects: true;
+  physicallyCorrectLights: true;
+  maxCanvasWidth: 1920;
+  maxCanvasHeight: 1920;">
+    <a-assets>
+      <a-asset-item id="candle" src="https://raw.githubusercontent.com/yashrajbharti/kml-images/main/sceneearth/scene.gltf"></a-asset-item>
+    </a-assets>
+
+    <a-entity id="camera" camera="fov: 80; zoom: 1;" position="0 0 0" orbit-controls="
+            enableZoom: false;          
+            autoRotate: true;
+            target: #target;
+            enableDamping: true;
+            dampingFactor: 0.125;
+            rotateSpeed:0.25;
+            minDistance:3;
+            maxDistance:100;
+            " mouse-cursor="">
+    </a-entity>
+
+    <a-entity gltf-model="#candle" animation-mixer="loop:repeat" scale="0.2 0.2 0.2" position="0 0 -27.6"  id="target"></a-entity>
+
+  </a-scene>
+
+</body>
+
+</html>
